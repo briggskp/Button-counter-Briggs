@@ -50,4 +50,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        TextView et = (TextView) findViewById(R.id.number_text_view);
+        savedInstanceState.putString("value", et.getText().toString());
+    }
+
+    public void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+
+        String value = savedInstanceState.getString("value");
+        TextView et = (TextView) findViewById(R.id.number_text_view);
+        et.setText(value);
+    }
 }
