@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +21,11 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Nothing yet...
+                TextView et = (TextView) findViewById(R.id.number_text_view);
+                String value = et.getText().toString();
+                int num = Integer.parseInt(value);
+                num = num + 1;
+                et.setText(String.valueOf(num));
             }
         });
 
@@ -27,7 +33,11 @@ public class MainActivity extends AppCompatActivity {
         subtractButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Nothing yet...
+                TextView et = (TextView) findViewById(R.id.number_text_view);
+                String value = et.getText().toString();
+                int num = Integer.parseInt(value);
+                num = num - 1;
+                et.setText(String.valueOf(num));
             }
         });
 
@@ -35,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Nothing yet...
+                TextView et = (TextView) findViewById(R.id.number_text_view);
+                et.setText("0");
             }
         });
     }
